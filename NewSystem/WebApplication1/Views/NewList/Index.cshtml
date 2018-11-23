@@ -1,0 +1,89 @@
+﻿@{
+    Layout = null;
+}
+@using Itcast.CMS.Model
+@using Itcast.CMS.Common
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>电子科技大学中山学院新闻网</title>
+<link href="/WebDemos/style/style.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/themes/main.css" rel="stylesheet" />
+<link rel="icon" href="../favicon.ico" type="image/x-icon" />
+    <link href="~/Content/pageBar.css" rel="stylesheet" />
+</head>
+<body class="body_column">
+	<div id="wrap_column">
+       <!----------------------------------begin header_column---------------------------------->
+        <div class="newsHeader">
+            <div class="newsLogo"><a href="/article/tack-home.html"><img src="/images/news_logo.jpg" /></a></div>
+        </div>
+        <div class="newsNav" id="newsMenu">
+            <ul>
+                <li><a href="http://www.zsc.edu.cn/">学校主页</a></li>
+
+                <li><a href="/NewsMain.html">学校要闻</a></li>
+
+                <li><a href="/NewsMain.html">体育新闻</a></li>
+
+                <li><a href="/NewsMain.html">娱乐新闻</a></li>
+
+                <li><a href="/NewsMain.html">教育新闻</a></li>
+
+                <li><a href="/NewsMain.html" class="curr">新闻搜索</a></li>
+
+                <li><a href="/NewsMain.html">用户登录</a></li>
+
+                <li><a href="/NewsMain.html">用户注册</a></li>
+            </ul>
+        </div>
+<!----------------------------------end header_column---------------------------------->
+      <!----------------------------------begin main_column---------------------------------->
+	  <div id="main_column">
+      	<div id="sidebar_column">
+        	<h2 class="title_news">新闻中心</h2><!-- #BeginLibraryItem "/Library/menu_prd.lbi" -->	 
+        <dl class="menu_prd">
+            
+        </dl>
+      </div>
+      	<div id="content_column">
+        	<div class="position"><a class="graylink" href="../index.html">首页</a>&nbsp;&lt;&nbsp;<span class="color0range">新闻中心</span></div>
+            <div class="cont">
+            	<ul class="list_news">
+                    @if(ViewData["newInfoList"]!=null)
+                    {
+                        foreach(T_New newInfo in (List<T_New>)ViewData["newInfoList"])
+                        {
+            	  <li><span>@newInfo.SubDateTime.ToShortDateString()</span><a href="/NewList/ShowDetail/?id=@newInfo.Id" target="_blank">@newInfo.Title</a></li>
+                       }
+                 }
+                    else
+                    {
+                        <li>暂无数据</li>
+                    }
+
+            	
+            	</ul>
+                <div class="page_nav">@MvcHtmlString.Create(PageBar.GetPageBar((int)ViewData["pageIndex"],(int)ViewData["pageCount"]))</div>
+            </div>
+        </div>
+      	<div class="clear"></div>
+     </div>
+       <!----------------------------------end main_column---------------------------------->
+      <!----------------------------------begin footer_column----------------------------------><!-- #BeginLibraryItem "/Library/fooer.lbi" -->
+<div id="footer_column">
+      	<span class="copyright"></span><span class="frdlink">友情链接：<select name="">
+	  <option>公司或合作伙伴网站</option>
+	</select></span>
+      </div><!-- #EndLibraryItem --><!----------------------------------end footer_column---------------------------------->
+	</div>
+</body>
+</html>
+
+ 
+ 
+ 
+ 
+ 

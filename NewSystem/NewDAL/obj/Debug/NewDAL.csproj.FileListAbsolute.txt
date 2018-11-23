@@ -1,0 +1,9 @@
+D:\百度云盘\学习内容\NewSystem\NewDAL\bin\Debug\NewDAL.dll
+D:\百度云盘\学习内容\NewSystem\NewDAL\bin\Debug\NewDAL.pdb
+D:\百度云盘\学习内容\NewSystem\NewDAL\obj\Debug\NewDAL.csprojResolveAssemblyReference.cache
+D:\百度云盘\学习内容\NewSystem\NewDAL\obj\Debug\NewDAL.dll
+D:\百度云盘\学习内容\NewSystem\NewDAL\obj\Debug\NewDAL.pdb
+D:\百度云盘\学习内容\NewSystem\NewDAL\bin\Debug\NewCommon.dll
+D:\百度云盘\学习内容\NewSystem\NewDAL\bin\Debug\NewModel.dll
+D:\百度云盘\学习内容\NewSystem\NewDAL\bin\Debug\NewCommon.pdb
+D:\百度云盘\学习内容\NewSystem\NewDAL\bin\Debug\NewModel.pdb

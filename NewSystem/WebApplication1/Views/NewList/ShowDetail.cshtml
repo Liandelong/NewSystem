@@ -1,0 +1,120 @@
+﻿@{
+    Layout = null;
+}
+@model Itcast.CMS.Model.T_New
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>电子科技大学中山学院新闻网</title>
+    <link href="~/Content/themes/main.css" rel="stylesheet" />
+<link href="/WebDemos/style/style.css" type="text/css" rel="stylesheet" />
+<link rel="icon" href="../favicon.ico" type="image/x-icon" />
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            loadComment();
+            $("#btnComment").click(function () {
+                addComment();
+            });
+            //发布评论
+            function addComment() {
+                var msg = $("#txtMsg").val();
+                if (msg !="") {
+                    var newId=@Model.Id
+                    $.post("/NewList/AddComment", { "id": newId, "msg": msg }, function (data) {
+                        if (data == "ok") {
+                            $("#commentList").html("");
+                            loadComment();
+                            $("#txtMsg").val("");
+                        } else {
+                            $("#errorMsg").text("评论添加失败!!");
+                        }
+                    });
+                } else {
+                    $("#errorMsg").text("评论内容不能为空!!");
+                }
+
+            }
+            function loadComment() {
+                var newId =@Model.Id
+                $.post("/NewList/LoadComment", { "id": newId }, function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        $("<li><span>" + data[i].Msg + "</span><span>" + data[i].CreateDateTime + ":</span></li>").appendTo("#commentList");
+                    }
+                });
+            }
+        });
+    </script>
+</head>
+<body class="body_column">
+	<div id="wrap_column">
+       <!----------------------------------begin header_column---------------------------------->
+        <div class="newsHeader">
+            <div class="newsLogo"><a href="/article/tack-home.html"><img src="/images/news_logo.jpg" /></a></div>
+        </div>
+        <div class="newsNav" id="newsMenu">
+            <ul>
+                <li><a href="http://www.zsc.edu.cn/">学校主页</a></li>
+
+                <li><a href="/NewsMain.html">学校要闻</a></li>
+
+                <li><a href="/NewsMain.html">体育新闻</a></li>
+
+                <li><a href="/NewsMain.html">娱乐新闻</a></li>
+
+                <li><a href="/NewsMain.html">教育新闻</a></li>
+
+                <li><a href="/NewsMain.html" class="curr">新闻搜索</a></li>
+
+                <li><a href="/NewsMain.html">用户登录</a></li>
+
+                <li><a href="/NewsMain.html">用户注册</a></li>
+
+            </ul>
+        </div>
+<!----------------------------------end header_column---------------------------------->
+      <!----------------------------------begin main_column---------------------------------->
+	  <div id="main_column">
+      	<div id="sidebar_column">
+        	<h2 class="title_news">新闻中心</h2><!-- #BeginLibraryItem "/Library/menu_prd.lbi" -->	 
+              <dl class="menu_prd">
+              </dl>
+       </div>
+      	<div id="content_column">
+        	<div class="position"><a class="graylink" href="/index.html">首页</a>&nbsp;&lt;&nbsp;<a class="graylink" href="http://localhost:10191/NewList/Index">新闻中心</a>&nbsp;&lt;&nbsp;<span class="color0range">新闻详情</span></div>
+            <div class="cont">
+           	  <h1 class="title">@Model.Title</h1>
+              <p class="info">@Model.SubDateTime.ToShortDateString()</p>
+                <p>@MvcHtmlString.Create(Model.Msg)</p>
+          </div>
+        </div>
+      	<div class="clear"></div>
+     </div>
+        <div class="cont">
+            	<ul class="list_news" id="commentList">
+                    </ul>
+            </div>
+
+        <div  style="margin-left:230px"> <textarea id="txtMsg" rows="8"  cols="100"></textarea>
+            <input type="button" value="发布评论" id="btnComment" />
+            <span id="errorMsg" style="font-size:12px;color:red"></span>
+        </div>
+
+       <!----------------------------------end main_column---------------------------------->
+      <!----------------------------------begin footer_column----------------------------------><!-- #BeginLibraryItem "/Library/fooer.lbi" -->
+<div id="footer_column">
+      	<span class="copyright"></span><span class="frdlink">友情链接：<select name="">
+	  <option>公司或合作伙伴网站</option>
+	</select></span>
+      </div><!-- #EndLibraryItem --><!----------------------------------end footer_column---------------------------------->
+	</div>
+</body>
+</html>
+
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,4 @@
+D:\百度云盘\学习内容\NewSystem\NewModel\bin\Debug\NewModel.dll
+D:\百度云盘\学习内容\NewSystem\NewModel\bin\Debug\NewModel.pdb
+D:\百度云盘\学习内容\NewSystem\NewModel\obj\Debug\NewModel.dll
+D:\百度云盘\学习内容\NewSystem\NewModel\obj\Debug\NewModel.pdb

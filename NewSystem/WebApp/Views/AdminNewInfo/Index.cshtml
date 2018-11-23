@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = null;
+}
+@using NewModel
+@using NewCommon
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/tableStyle.css" rel="stylesheet" />
+    <link href="~/Content/pageBar.css" rel="stylesheet" />
+</head>
+<body>
+    <div> 
+          @if (ViewData["pageList"] != null){
+            <table style="width:100%" id="tabs">
+            <tr><th>标题</th><th>时间</th><th>作者</th><th>类型</th><th>详细</th><th>删除</th><th>修改</th></tr>
+           @foreach (var newInfo in (List<NewInfo>)ViewData["pageList"])
+           {
+            <tr>
+                <td>@newInfo.Title</td>
+                <td>@newInfo.SubDateTime.ToShortDateString()</td>
+                <td>@newInfo.Author</td>
+                <td>@newInfo.TypeId</td>
+                <td><a href="javascript:void(0)" class="details" ids="@newInfo.Id">详细</a></td>
+                <td><a href="javascript:void(0)" class="deletes" ids="@newInfo.Id">删除</a></td>
+                <td><a href="javascript:void(0)" class="edits" ids="@newInfo.Id">修改</a></td>
+            </tr>
+           }
+            </table>
+            <p class="page_nav">
+                @MvcHtmlString.Create(PageBar.GetPageBar((int)ViewData["pageIndex"], (int)ViewData["pageCount"]))
+            </p>
+          }
+          else
+          {
+              <span>暂无数据</span>
+          }
+    </div>
+</body>
+</html>

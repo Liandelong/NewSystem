@@ -1,0 +1,11 @@
+D:\百度云盘\学习内容\NewSystem\NewBLL\bin\Debug\NewBLL.dll
+D:\百度云盘\学习内容\NewSystem\NewBLL\bin\Debug\NewBLL.pdb
+D:\百度云盘\学习内容\NewSystem\NewBLL\obj\Debug\NewBLL.csprojResolveAssemblyReference.cache
+D:\百度云盘\学习内容\NewSystem\NewBLL\obj\Debug\NewBLL.dll
+D:\百度云盘\学习内容\NewSystem\NewBLL\obj\Debug\NewBLL.pdb
+D:\百度云盘\学习内容\NewSystem\NewBLL\bin\Debug\NewCommon.dll
+D:\百度云盘\学习内容\NewSystem\NewBLL\bin\Debug\NewDAL.dll
+D:\百度云盘\学习内容\NewSystem\NewBLL\bin\Debug\NewModel.dll
+D:\百度云盘\学习内容\NewSystem\NewBLL\bin\Debug\NewCommon.pdb
+D:\百度云盘\学习内容\NewSystem\NewBLL\bin\Debug\NewDAL.pdb
+D:\百度云盘\学习内容\NewSystem\NewBLL\bin\Debug\NewModel.pdb
